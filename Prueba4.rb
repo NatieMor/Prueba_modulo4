@@ -1,7 +1,6 @@
 #todavia no se realiza el desarrollo... 
-
 class Person
-    attr 
+    attr_accessor :
     def initialize(first, last, age, type)
     @first_name = first
     @last_name = last
@@ -31,6 +30,36 @@ class Person
         end
         end
         end
+
+class Student < Person
+    def talk
+        puts "Aquí es la clase de programación con Ruby?"
+    end
+    def introduce
+        puts "Hola profesor. Mi nombre es #{@first_name} #{@last_name}."
+    end
+end
+class Teacher < Person
+
+    def talk
+        puts "Bienvenidos a la clase de programación con Ruby!"
+        end
+    end
+    def introduce
+            if @type == "Student"
+            puts "Hola alumnos. Mi nombre es #{@first_name} #{@last_name}."
+    end
+end
+class Parent < Person
+    def talk
+        puts "Aquí es la reunión de apoderados?"
+        end
+    end
+    def introduce
+        puts "Hola. Soy uno de los apoderados. Mi nombre es #{@first_name} #{@last_name}."
+        end
+    end
+end
         #Utilizando los principios de Herencia y Polimorfismo, refactoriza el siguiente código para
 #eliminar la innecesaria cantidad de sentencias if en los métodos talk e introduce
 Requerimientos

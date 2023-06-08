@@ -1,16 +1,16 @@
-#todavia no se realiza el desarrollo... 
 class Person
-    attr_accessor :
-    def initialize(first, last, age, type)
-    @first_name = first
-    @last_name = last
-    @age = age
-    @type = type
+    attr_accessor :first, :last, :age, :type 
+    def initialize(first=" ", last=" ", age=" ", type=" ")
+        @first_name = first
+        @last_name = last
+        @age = " "
+        @type = type
     end
     def birthday
-    @age += 1
+        @age += 1
     end
 end
+#requerimiento 1 y 2
 class Student < Person
     def talk
         puts "Aquí es la clase de programación con Ruby?"
@@ -20,12 +20,12 @@ class Student < Person
     end
 end
 class Teacher < Person
-     def talk
+    def talk
         puts "Bienvenidos a la clase de programación con Ruby!"
-     end
-     def introduce
-       puts "Hola alumnos. Mi nombre es #{@first_name} #{@last_name}."
-     end
+    end
+    def introduce
+        puts "Hola alumnos. Mi nombre es #{@first_name} #{@last_name}."
+    end
 end
 class Parent < Person
     def talk
@@ -35,12 +35,23 @@ class Parent < Person
         puts "Hola. Soy uno de los apoderados. Mi nombre es #{@first_name} #{@last_name}."   
     end
 end
-Talk
-introduce 
-
-3. El método introduce al imprimir el mensaje muestra el nombre y apellido haciendo
-uso de interpolación de variables de instancia.
-(1 Puntos)
-4. Al generar las instancias de cada objeto, se muestra un mensaje en función del
-método que sea invocado.
-(3 Puntos)
+puts
+#generando las instancias para cada clase
+    estudiante = Student.new("Pablo", "Morales", " ", "estudiante")
+    profesor = Teacher.new("Isabel", "Diaz", "35", "Profresor")
+    padre = Parent.new("Patricio ", " Morales ", " ", " ")
+#inspeccionamos las instancias y de donde proviene su herencia
+    puts estudiante.inspect
+    puts profesor.inspect
+    puts padre.inspect
+puts #Ancestros
+    puts Student.ancestors.to_s
+    puts Teacher.ancestors.to_s
+    puts Parent.ancestors.to_s
+puts #llamando a los metodos
+    puts profesor.introduce 
+    puts profesor.talk 
+    puts estudiante.introduce 
+puts
+    puts padre.introduce
+    puts padre.talk 
